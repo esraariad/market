@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../screens/details_page.dart';
+
 class OrderCardItems extends StatelessWidget {
   final String OrderNom;
   final String OrderQuan;
@@ -34,6 +36,17 @@ class OrderCardItems extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {
                       Navigator.pushNamed(context, "Order Details");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OrderDetails(
+                                    OrderNom: OrderNom,
+                                    OrderQuan: OrderQuan.toString(),
+                                    Receiving: Receiving.toString(),
+                                    DateTime: DateTime.toString(),
+                                    Waiting: Waiting.toString(),
+                                    photo: photo.toString(),
+                                  )));
                     },
                     icon: Icon(Icons.arrow_back_ios),
                     color: Color.fromARGB(255, 40, 124, 120),
